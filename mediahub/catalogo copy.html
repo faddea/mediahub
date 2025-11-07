@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediaHub</title>
+
+    <!-- Tailwind y GSAP por CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+      .scroll-row::-webkit-scrollbar { display: none; }
+
+      #catalogo img {
+    display: block;
+  }
+  #catalogo > div {
+    min-height: 360px; /* fuerza altura igual */
+  }
+    </style>
+  </head>
+
+  <body class="bg-black text-white overflow-x-hidden">
+    <!-- Navbar -->
+    <header class="flex justify-between items-center p-6 bg-gray-950/70 backdrop-blur-md sticky top-0 z-50">
+      <a href="#">
+      <h1 class="text-3xl font-bold">MediaHub</h1>
+      </a>
+      <nav class="flex gap-4">
+        <button class="filtro text-gray-300 hover:text-white" data-tipo="todo">Todo</button>
+        <button class="filtro text-gray-300 hover:text-white" data-tipo="pelicula">Películas</button>
+        <button class="filtro text-gray-300 hover:text-white" data-tipo="serie">Series</button>
+        <button class="filtro text-gray-300 hover:text-white" data-tipo="juego">Juegos</button>
+      </nav>
+    </header>
+
+    <section id="hero-slider" class="relative h-[70vh] flex items-end justify-start bg-cover bg-center">
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent"></div>
+    <div class="relative z-10 p-10 max-w-xl">
+      <h2 id="hero-title" class="text-5xl font-bold mb-4">The Last of Us</h2>
+      <p id="hero-description" class="text-gray-300 mb-6">
+        En un mundo post-apocalíptico, Joel y Ellie luchan por sobrevivir y encontrar esperanza.
+      </p>
+      <button class="bg-black px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform">
+        ▶ Ver ahora
+      </button>
+    </div>
+</section>
+
+    <!-- Catálogo -->
+    <main class="p-8 space-y-10">
+      <section>
+        <h3 class="text-2xl font-bold mb-4">Recomendados para ti</h3>
+        <div
+  id="catalogo"
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+></div>
+
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-bold mb-4">Tendencias</h3>
+        <div class="scroll-row flex gap-4 overflow-x-auto pb-4" id="tendencias"></div>
+      </section>
+    </main>
+
+    <footer class="bg-black border-t border-gray-800 py-12 px-6 md:px-16 relative z-20">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+        <div>
+          <div class="text-2xl font-bold text-white mb-4">
+            <a href="#">
+              MediaHub
+            </a>
+          </div>
+          <p class="text-gray-400 text-sm">
+            Creamos páginas y sistemas web profesionales para negocios que quieren destacar.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-4">Servicios</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-purple-400 transition">Desarrollo Web</a></li>
+            <li><a href="#" class="hover:text-purple-400 transition">Sistemas Web</a></li>
+            <li><a href="#" class="hover:text-purple-400 transition">Apps Web</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-4">Empresa</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#" class="hover:text-purple-400 transition">Sobre nosotros</a></li>
+            <li><a href="#" class="hover:text-purple-400 transition">Portafolio</a></li>
+            <li><a href="#" class="hover:text-purple-400 transition">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contáctanos</h4>
+          <p class="text-gray-400 text-sm">presencyweb@gmail.com</p>
+          <p class="text-gray-400 text-sm">+54 11 2345 6789</p>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+        © 2025 Presency Web. Todos los derechos reservados.
+      </div>
+    </footer>    
+
+<script>
+    // 1. Array de objetos con las imágenes, títulos y descripciones
+    // ...
+// 1. Array de objetos con las imágenes, títulos y descripciones
+const slideData = [
+    {
+        image: 'https://images.wallpapersden.com/image/download/the-last-of-us-season-2_bmhmammUmZqaraWkpJRoZWVlrWZrbW0.jpg',
+        title: 'The Last of Us',
+        description: 'En un mundo post-apocalíptico, Joel y Ellie luchan por sobrevivir y encontrar esperanza.',
+        backgroundPosition: 'center center' // Por defecto (o puedes usar 'center 50%')
+    },    
+    {
+        image: 'https://cdn.wallpapersafari.com/15/88/UtGnie.jpg',
+        title: 'The Last of Us',
+        description: 'En un mundo post-apocalíptico, Joel y Ellie luchan por sobrevivir y encontrar esperanza.',
+        backgroundPosition: 'center center' // Por defecto (o puedes usar 'center 50%')
+    },
+    {
+        image: 'https://www.thebanner.org/sites/default/files/styles/article_detail_header/public/2023-08/MM-1207%20Oppenheimer.jpg?itok=0U-jOPJCg',
+        title: 'Aventura en la Ciudad',
+        description: 'Descubre los secretos ocultos de una metrópolis vibrante y llena de misterios.',
+        // Solución: Mover la imagen verticalmente hacia arriba
+        // 'center 30%' moverá el punto de enfoque del fondo del 50% al 30% (más arriba)
+        backgroundPosition: 'center 30%' // <--- ¡Ajuste clave aquí!
+    },
+    {
+        image: 'https://wallpapercave.com/wp/wp1983654.jpg',
+        title: 'Exploración Espacial',
+        description: 'Viaja a galaxias lejanas y experimenta la inmensidad del cosmos.',
+        backgroundPosition: 'center center'
+    },
+    // ... otras diapositivas
+];
+
+// ...
+
+    // 2. Obtener los elementos HTML
+    const hero = document.getElementById('hero-slider');
+    const heroTitle = document.getElementById('hero-title');
+    const heroDescription = document.getElementById('hero-description');
+    
+    // 3. Inicializar el índice de la diapositiva
+    let currentSlideIndex = 0;
+
+    // 4. Función para cambiar la imagen de fondo, título y descripción con GSAP
+function changeSlide() {
+    const nextSlide = slideData[currentSlideIndex];
+
+    // Animar la salida del título y la descripción
+    gsap.to([heroTitle, heroDescription], {
+        duration: 0.7, 
+        opacity: 0,
+        y: 20,
+        ease: "power2.in",
+        onComplete: () => {
+            // ... (Actualizar contenido del texto)
+            heroTitle.textContent = nextSlide.title;
+            heroDescription.textContent = nextSlide.description;
+
+            // 1. CAMBIO DE FONDO: Aplica la nueva URL de imagen
+            hero.style.backgroundImage = `url('${nextSlide.image}')`;
+            
+            // 2. CAMBIO DE POSICIÓN: Aplica la posición de fondo específica
+            // Si backgroundPosition existe en el objeto, úsala; si no, usa el valor predeterminado 'center center'
+            hero.style.backgroundPosition = nextSlide.backgroundPosition || 'center center'; 
+
+            // Animar la entrada del nuevo título y descripción
+            gsap.fromTo([heroTitle, heroDescription], 
+                { opacity: 0, y: -20 },
+                {
+                    duration: 0.7, 
+                    opacity: 1,
+                    y: 0,
+                    ease: "power2.out",
+                    delay: 0.1
+                }
+            );
+        }
+    });
+    
+    currentSlideIndex = (currentSlideIndex + 1) % slideData.length;
+}
+// ...
+    // 5. Iniciar el carrusel
+    changeSlide(); // Mostrar la primera diapositiva inmediatamente
+    setInterval(changeSlide, 5000); // Cambiar cada 5 segundos
+</script>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

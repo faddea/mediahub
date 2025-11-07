@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediaHub - Inicio</title>
+
+    <!-- Tailwind y GSAP -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body { font-family: 'Poppins', sans-serif; }
+      .fade-in { opacity: 0; transform: translateY(30px); }
+    </style>
+  </head>
+
+  <body class="bg-black text-white overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="flex justify-between items-center p-6 bg-neutral-950 backdrop-blur-md sticky top-0 z-50">
+      <a href="#">
+        <h1 class="text-3xl font-bold text-gray-100">MediaHub</h1>
+      </a>
+      <nav class="flex gap-6 text-gray-300">
+        <a href="index.html" class="hover:text-white">Inicio</a>
+        <a href="catalogo.html" class="hover:text-white">Catálogo</a>
+        <a href="#" class="hover:text-white">Novedades</a>
+        <a href="#" class="hover:text-white">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- Hero principal -->
+<section id="hero" class="relative h-[90vh] flex items-center justify-center text-center bg-cover bg-center transition-all duration-1000">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 space-y-6 px-6 max-w-2xl opacity-0 translate-y-10">
+    <h2 class="text-5xl font-bold text-white drop-shadow-lg">Todo tu entretenimiento en un solo lugar</h2>
+    <p class="text-gray-300 text-lg">
+      Películas, series y juegos que te apasionan, reunidos en un mismo sitio.
+    </p>
+    <a href="catalogo.html" 
+       class="relative inline-block px-8 py-3 font-semibold overflow-hidden rounded-lg text-white group/button transition-transform hover:scale-105">
+      <span class="absolute inset-0 bg-white translate-y-full group-hover/button:translate-y-0 transition-transform duration-300 ease-out"></span>
+      <span class="relative z-10 group-hover/button:text-black transition-colors duration-300">Explorar Catálogo</span>
+    </a>
+  </div>
+</section>
+
+
+    <!-- Sección destacada -->
+    <section class="p-10 space-y-10 fade-in">
+      <h3 class="text-3xl font-bold text-center mb-8">Lo que encontrarás en MediaHub</h3>
+
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+  <!-- Películas -->
+  <div class="bg-neutral-950 shadow-lg overflow-hidden hover:scale-[1.03] transition-transform group">
+    <div class="h-80 overflow-hidden">
+      <img src="https://xl.movieposterdb.com/25_05/2025/5950044/xl_superman-movie-poster_433f7754.jpg?v=2025-10-07%2014:09:03" 
+           alt="Películas" 
+           class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+  style="object-position: top center;"
+      />
+    </div>
+    <div class="p-6 flex flex-col justify-between h-56">
+      <div>
+        <h4 class="text-2xl font-semibold mb-2">Películas</h4>
+        <p class="text-gray-400 mb-6">
+          Desde clásicos del cine hasta los últimos estrenos que no te podés perder.
+        </p>
+      </div>
+      <a href="peliculas.html" 
+         class="relative inline-block px-8 py-2 font-semibold overflow-hidden rounded-lg text-white group/button">
+        <span class="absolute inset-0 bg-white translate-y-full group-hover/button:translate-y-0 transition-transform duration-300 ease-out"></span>
+        <span class="relative z-10 group-hover/button:text-black transition-colors duration-300">Explorar</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Series -->
+  <div class="bg-neutral-950 shadow-lg overflow-hidden hover:scale-[1.03] transition-transform group">
+    <div class="h-80 overflow-hidden">
+      <img src="https://wallpapers.com/images/featured/dexter-fe9qbtzm9bbv0xxj.jpg" 
+           alt="Series" 
+           class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+    </div>
+    <div class="p-6 flex flex-col justify-between h-56">
+      <div>
+        <h4 class="text-2xl font-semibold  mb-2">Series</h4>
+        <p class="text-gray-400 mb-6">
+          Maratoneá tus series favoritas con la mejor calidad y sin interrupciones.
+        </p>
+      </div>
+      <a href="series.html" 
+         class="relative inline-block px-8 py-2 font-semibold overflow-hidden rounded-lg text-white group/button">
+        <span class="absolute inset-0 bg-white translate-y-full group-hover/button:translate-y-0 transition-transform duration-300 ease-out"></span>
+        <span class="relative z-10 group-hover/button:text-black transition-colors duration-300">Explorar</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Juegos -->
+  <div class="bg-neutral-950 shadow-lg overflow-hidden hover:scale-[1.03] transition-transform group">
+    <div class="h-80 overflow-hidden">
+      <img src="https://i.ytimg.com/vi/T77URCcV1SA/maxresdefault.jpg" 
+           alt="Juegos" 
+           class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+    </div>
+    <div class="p-6 flex flex-col justify-between h-56">
+      <div>
+        <h4 class="text-2xl font-semibold  mb-2">Juegos</h4>
+        <p class="text-gray-400 mb-6">
+          Explorá los títulos más populares y descubrí nuevas aventuras digitales.
+        </p>
+      </div>
+      <a href="juegos.html" 
+         class="relative inline-block px-8 py-2 font-semibold overflow-hidden rounded-lg text-white group/button">
+        <span class="absolute inset-0 bg-white translate-y-full group-hover/button:translate-y-0 transition-transform duration-300 ease-out"></span>
+        <span class="relative z-10 group-hover/button:text-black transition-colors duration-300">Explorar</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+<!-- CTA Section -->
+<section class="relative mt-20 bg-cover bg-center h-[75vh] flex items-center justify-center text-center"
+         style="background-image: url('https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/12/dark-souls-3-background-featured.jpg');">
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 px-6 max-w-2xl group">
+    <h3 class="text-4xl md:text-5xl font-bold mb-6 text-white">Descubrí todo lo que MediaHub tiene para vos</h3>
+    <p class="text-gray-300 mb-10 text-lg">
+      Películas, series y juegos en un solo lugar. Tu próxima historia favorita te está esperando.
+    </p>
+
+    <!-- Botón con animación -->
+    <a href="catalogo.html" 
+       class="relative inline-block px-8 py-3 font-semibold overflow-hidden rounded-lg text-white group/button transition-transform hover:scale-105">
+      <span class="absolute inset-0 bg-white translate-y-full group-hover/button:translate-y-0 transition-transform duration-300 ease-out"></span>
+      <span class="relative z-10 group-hover/button:text-black transition-colors duration-300">Ir al Catálogo</span>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black border-t border-gray-800 py-12 px-8 md:px-16 relative z-20">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Brand -->
+    <div>
+      <div class="text-2xl font-bold text-white mb-4">
+        <a href="#">
+          MediaHub
+        </a>
+      </div>
+      <p class="text-gray-400 text-sm">
+        Creamos páginas y sistemas web profesionales para negocios que quieren destacar.
+      </p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Servicios</h4>
+      <ul class="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" class="hover:text-purple-400">Desarrollo Web</a></li>
+        <li><a href="#" class="hover:text-purple-400">Sistemas Web</a></li>
+        <li><a href="#" class="hover:text-purple-400">Apps Web</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-semibold mb-4">Empresa</h4>
+      <ul class="space-y-2 text-gray-400 text-sm">
+        <li><a href="#" class="hover:text-purple-400">Sobre nosotros</a></li>
+        <li><a href="#" class="hover:text-purple-400">Portafolio</a></li>
+        <li><a href="#" class="hover:text-purple-400">Contacto</a></li>
+      </ul>
+    </div>
+
+    <!-- Contacto -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Contáctanos</h4>
+      <p class="text-gray-400 text-sm">presencyweb@gmail.com</p>
+      <p class="text-gray-400 text-sm">+54 11 2345 6789</p>
+    </div>
+  </div>
+
+  <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+    © 2025 Presency Web. Todos los derechos reservados.
+  </div>
+</footer>
+
+
+    <!-- Animación con GSAP -->
+    <script>
+      gsap.to(".fade-in", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power3.out"
+      });
+    </script>
+
+    <!-- Script para fondo aleatorio + animación -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Lista de imágenes de fondo (podés usar tus propias rutas)
+    const fondos = [
+      "peacemaker-season-2-3440x1440-23543.jpg",
+      "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2021/12/dark-souls-3-background-featured.jpg",
+      "https://images.hdqwalls.com/wallpapers/breaking-bad-tv-show.jpg",
+      "https://wallpapers.com/images/featured/john-wick-pictures-fkurzl5x5t5vakvg.jpg",
+      "https://www.psu.com/wp/wp-content/uploads/2022/09/God-of-War-Ragnarok-Story-Screenshots-05.png"
+    ];
+
+    // Seleccionar aleatoriamente una imagen
+    const fondoAleatorio = fondos[Math.floor(Math.random() * fondos.length)];
+
+    // Asignar la imagen al hero
+    const hero = document.getElementById("hero");
+    hero.style.backgroundImage = `url('${fondoAleatorio}')`;
+
+    // GSAP animación de entrada (imagen + texto)
+    gsap.fromTo(hero, 
+      { scale: 1.1 }, 
+      { scale: 1, duration: 1.5, ease: "power2.out" }
+    );
+
+    gsap.to("#hero .relative.z-10", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      delay: 0.5,
+      ease: "power3.out"
+    });
+  });
+</script>
+
+  </body>
+</html>
